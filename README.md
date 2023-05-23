@@ -2,12 +2,6 @@
 	<img width="200" height="200" margin-right="100%" src="https://github.com/dwarvesf/hidden/blob/develop/img/icon_512%402x.png?raw=true">
 </p>
 <p align="center">
-	<a href="https://webuild.community">
-		<img src="https://raw.githubusercontent.com/webuild-community/badge/master/svg/love.svg" />
-	</a>
-	<a href="https://github.com/dwarvesf/hidden/releases/latest">
- 		<img src="https://img.shields.io/badge/download-latest-brightgreen.svg" alt="download">
-	</a>
 	<a href="https://img.shields.io/badge/platform-macOS-lightgrey.svg">
  		<img src="https://img.shields.io/badge/platform-macOS-lightgrey.svg" alt="platform">
 	</a>
@@ -16,8 +10,9 @@
 	</a>
 </p>
 
-## Hidden Bar
-Hidden Bar lets you hide menu bar items to give your Mac a cleaner look.
+## Hidden Bar (Unofficial Maintenance)
+Hidden Bar (Unofficial Maintenance) lets you hide menu bar items to give your Mac a cleaner look.
+This is an unofficial maintenance for the discontinued original [Hidden Bar](https://github.com/dwarvesf/hidden).
 
 <p align="center">
 	<img width="400" src="img/screen1.png">
@@ -28,48 +23,56 @@ Hidden Bar lets you hide menu bar items to give your Mac a cleaner look.
 
 ###  App Store
 
-[![AppStore](img/appstore.svg)](https://itunes.apple.com/app/hidden-bar/id1452453066)
+This verison of Hidden Bar is not available on the App Store.
 
-### Others
+Original Version (v1.8): [![AppStore](img/appstore.svg)](https://itunes.apple.com/app/hidden-bar/id1452453066)
 
-The Hidden Bar is notarized before distributed out side App Store. It's safe to use 👍
+### Pre-built Packages
 
-#### Using Homebrew
+This version of Hidden Bar is NOT notarized. The GateKeeper will flag any non-notarized App as Untrusted and therefore prevent it from opening. Although you can override GateKeeper's decision, it is considered a bad habit while using your computer. Besides notarizing an app requires enrollments of Apple Developer Program, which currently is not the case for me. Therefore NO pre-built packages available.
 
-```
-brew install --cask hiddenbar
-```
+To test this version of Hidden Bar, you have to build it from source, which means you might also inspect the code yourself.
 
-#### Manual download
+For packages of the original Hidden Bar (up to v1.9), check out the original repo [here](https://github.com/dwarvesf/hidden).
 
-- [Download latest version](https://github.com/dwarvesf/hidden/releases/latest)
-- Open and drag the app to the Applications folder.
-- Launch Hidden and drag the icon in your menu bar (hold CMD) to the right so it is between some other icons.
+#### Build from Source
+
+To build this version of Hidden Bar, you have to have Xcode installed.
+
+1. Import the project into Xcode.
+2. Reslove the team certificate error. You have to sign your own copies yourself with your own cert. It is not necessary to be a member of Apple Developer Program to build this project.
+3. Build the project in Xcode.
 
 ## 🕹 Usage
 
+CAUTION: The usage of version of Hidden Bar is slightly different from the original one.
+
 * `⌘` + drag to move the Hidden icons around in the menu bar.
 * Click the Arrow icon to hide menu bar items.
+
+For more usage info, click the Help button in the Settings interfaces.
 
 <p align="center">
 	<img src="img/tutorial.gif">
 </p>
 
-## ✨<a href="https://github.com/dwarvesf/hidden/graphs/contributors">Contributors</a>
+## ✨<a href="https://github.com/dwarvesf/hidden/graphs/contributors">Contributions</a>
+
+Please read [this](CONTRIBUTING.md) before you make a contribution.
+
+### Unofficial Maintenance Acknowledgements
+
+Sincere gratitudes towards all contributors of the original Hidden Bar for your previous works.
+
+### Original Acknowledgements
 
 This project exists thanks to all the people who contribute. Thank you guys so much 👏
 
 [![](https://sourcerer.io/fame/phucledien/dwarvesf/hidden/images/0)](https://sourcerer.io/fame/phucledien/dwarvesf/hidden/links/0)[![](https://sourcerer.io/fame/phucledien/dwarvesf/hidden/images/1)](https://sourcerer.io/fame/phucledien/dwarvesf/hidden/links/1)[![](https://sourcerer.io/fame/phucledien/dwarvesf/hidden/images/2)](https://sourcerer.io/fame/phucledien/dwarvesf/hidden/links/2)[![](https://sourcerer.io/fame/phucledien/dwarvesf/hidden/images/3)](https://sourcerer.io/fame/phucledien/dwarvesf/hidden/links/3)[![](https://sourcerer.io/fame/phucledien/dwarvesf/hidden/images/4)](https://sourcerer.io/fame/phucledien/dwarvesf/hidden/links/4)[![](https://sourcerer.io/fame/phucledien/dwarvesf/hidden/images/5)](https://sourcerer.io/fame/phucledien/dwarvesf/hidden/links/5)[![](https://sourcerer.io/fame/phucledien/dwarvesf/hidden/images/6)](https://sourcerer.io/fame/phucledien/dwarvesf/hidden/links/6)[![](https://sourcerer.io/fame/phucledien/dwarvesf/hidden/images/7)](https://sourcerer.io/fame/phucledien/dwarvesf/hidden/links/7)
 
-Please read [this](CONTRIBUTING.md) before you make a contribution.
-
 ## Requirements
 macOS version >= 10.13
 
-## You may also like
-- [Blurred](https://github.com/dwarvesf/Blurred) - A macOS utility that helps reduce distraction by dimming your inactive noise
-- [Micro Sniff](https://github.com/dwarvesf/micro-sniff) - An ultra-light macOS utility that notify whenever your micro-device is being used
-- [VimMotion](https://github.com/dwarvesf/VimMotionPublic) Vim style shortcut for MacOS
 ## License
 
-MIT &copy; [Dwarves Foundation](https://github.com/dwarvesf)
+MIT &copy; [UeharaYou](https://github.com/UeharaYou); original: [Dwarves Foundation](https://github.com/dwarvesf)
