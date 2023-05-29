@@ -119,13 +119,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		0842CDFC23A9FF6D00D14BD4 /* Features */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Features;
-			sourceTree = "<group>";
-		};
 		0842CDFD23A9FF7500D14BD4 /* StatusBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,7 +209,6 @@
 				0842CDFD23A9FF7500D14BD4 /* StatusBar */,
 				0842CDFE23A9FF7C00D14BD4 /* Preferences */,
 				08A5F86223AA09D900981CA5 /* Extensions */,
-				0842CDFC23A9FF6D00D14BD4 /* Features */,
 				0842CDF923A9FDB900D14BD4 /* Models */,
 				9267D3212201A49200EFFCE2 /* Common */,
 				92C97B89220049B30007559C /* Views */,
