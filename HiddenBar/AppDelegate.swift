@@ -7,7 +7,6 @@
 //
 
 import AppKit
-import HotKey
 
 class AppDelegate: NSObject, NSApplicationDelegate{
     
@@ -15,6 +14,10 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         NSLog("App launched.")
         StatusBarController.setup()
         HotKeyManager.setupHotKey()
+        NotificationCenter.default.addObserver(forName: NotificationNames.prefsChanged, object: nil, queue: Global.mainQueue) {[] (notification) in
+            StatusBarMonitor.getOffScreenItems()
+            StatusBarMonitor.test()
+        }
     }
     
     func applicationWillTerminate(_ notification: Notification) {

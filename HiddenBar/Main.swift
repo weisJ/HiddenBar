@@ -7,6 +7,7 @@
 //
 
 import AppKit
+import ApplicationServices
 
 @main struct MyApp {
     
@@ -25,6 +26,11 @@ import AppKit
         
         // Register user default
         Preferences.setDefault()
+        
+        // Check Accessibility Permission
+        let options : NSDictionary = [kAXTrustedCheckOptionPrompt.takeRetainedValue() as CFString: true as CFBoolean]
+        let accessibilityEnabled = AXIsProcessTrustedWithOptions(options as CFDictionary)
+        NSLog("PERMIT: \(accessibilityEnabled)")
         
         // Load GUI
         NSLog("GUI started.")
