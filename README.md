@@ -19,13 +19,13 @@ This is an unofficial maintenance for the discontinued original [Hidden Bar](htt
 	<img width="400" src="img/screen2.png">
 </p>
 
-## 🚀 You've Probably Come to the Wrong Place
+## ❌ You Probably Came to the Wrong Place
 
-### Is this the branch you're looking for?
+### ⚠️ Is this the branch you're looking for?
 
-**IMPORTANT: THIS IS THE DEVELOPMENT BRANCH. This branch contains codes that are NOT TESTED and that RUN WITHOUT SANDBOXING.**
+**‼️ IMPORTANT ‼️: THIS IS THE DEVELOPMENT BRANCH. This branch contains codes that are NOT TESTED and that RUN WITHOUT SANDBOXING.**
 
-**IF YOU JUST WANT TO GET THIS APP, GO TO THE "STABLE" BRAHCH INSTEAD.**
+**❗️IF YOU JUST WANT TO GET THIS APP, GO TO THE "STABLE" BRAHCH INSTEAD.**
 
 If you want to know what is under development, help testing the dev build, or contribute to this project, please continue.
 
