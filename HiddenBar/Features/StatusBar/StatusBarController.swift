@@ -35,8 +35,8 @@ class StatusBarController {
             let secondarySepratorX = instance.secondarySeprator.button?.getOrigin?.x
         else {return .invalid}
         
-        // all x will be 0 if applicationDidFinishLaunching have not returned, so we have to try again
-        if toggleButtonX == 0 && primarySepratorX == 0 && secondarySepratorX == 0 {return .onStartUp}
+        // all x will be all equal if applicationDidFinishLaunching have not returned, so we have to try again
+        if toggleButtonX == primarySepratorX && primarySepratorX == secondarySepratorX {return .onStartUp}
         
         if Global.isUsingLTRTypeSystem {
             return (toggleButtonX > primarySepratorX && primarySepratorX > secondarySepratorX) ? .valid : .invalid
@@ -70,7 +70,6 @@ class StatusBarController {
         }
     }
     
-    //MARK: - Methods
     private static let instance = StatusBarController()
     private init() {
         if let button = masterToggle.button {
