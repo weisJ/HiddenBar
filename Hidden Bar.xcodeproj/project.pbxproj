@@ -35,6 +35,7 @@
 		FB1660812A12D3F4008C6B3C /* ProjectGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1660802A12D3F4008C6B3C /* ProjectGlobal.swift */; };
 		FB1660842A12E668008C6B3C /* ProductGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1660832A12E668008C6B3C /* ProductGlobal.swift */; };
 		FB25CE2F2A21C34900499D11 /* StatusBarMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB25CE2E2A21C34900499D11 /* StatusBarMonitor.swift */; };
+		FB600A572A26A0C900571A0E /* ScreenMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB600A562A26A0C900571A0E /* ScreenMonitor.swift */; };
 		FB63372E2A1D2961007527EE /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = FB63372D2A1D2961007527EE /* LaunchAtLogin */; };
 		FB6337332A1D5648007527EE /* HotKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6337322A1D5648007527EE /* HotKeyManager.swift */; };
 		FB71B0C72A153D6600D287CB /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB71B0C62A153D6600D287CB /* Notification.Name+Extension.swift */; };
@@ -87,6 +88,7 @@
 		FB1660832A12E668008C6B3C /* ProductGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGlobal.swift; sourceTree = "<group>"; };
 		FB25CE2D2A21346300499D11 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		FB25CE2E2A21C34900499D11 /* StatusBarMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMonitor.swift; sourceTree = "<group>"; };
+		FB600A562A26A0C900571A0E /* ScreenMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenMonitor.swift; sourceTree = "<group>"; };
 		FB6337322A1D5648007527EE /* HotKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeyManager.swift; sourceTree = "<group>"; };
 		FB6DDEC22A1D93010052B63C /* trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trash.swift; sourceTree = "<group>"; };
 		FB71B0C62A153D6600D287CB /* Notification.Name+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Extension.swift"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				92C97B9022018C1F0007559C /* StatusBarController.swift */,
 				FBE725F82A193D1000691AF3 /* ContextMenuController.swift */,
 				FB25CE2E2A21C34900499D11 /* StatusBarMonitor.swift */,
+				FB600A562A26A0C900571A0E /* ScreenMonitor.swift */,
 			);
 			path = StatusBar;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				3CF14C82221FA49D0083D42B /* PreferencesWindowController.swift in Sources */,
 				92C97B8B220049D20007559C /* NSBarButtonItem+Extension.swift in Sources */,
 				92C97B8D220058740007559C /* NSView+Extension.swift in Sources */,
+				FB600A572A26A0C900571A0E /* ScreenMonitor.swift in Sources */,
 				FB25CE2F2A21C34900499D11 /* StatusBarMonitor.swift in Sources */,
 				FB1660842A12E668008C6B3C /* ProductGlobal.swift in Sources */,
 				FB1660462A12CB2A008C6B3C /* Main.swift in Sources */,
@@ -443,6 +447,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -507,6 +512,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -538,6 +544,7 @@
 				CURRENT_PROJECT_VERSION = 14;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 47HK3524RN;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = HiddenBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -565,6 +572,7 @@
 				CURRENT_PROJECT_VERSION = 14;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 47HK3524RN;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = HiddenBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
