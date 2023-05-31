@@ -27,7 +27,7 @@ This is an unofficial maintenance for the discontinued original [Hidden Bar](htt
 
 **❗️IF YOU JUST WANT TO GET THIS APP, GO TO THE "STABLE" BRAHCH INSTEAD.**
 
-If you want to know what is under development, help testing the dev build, or contribute to this project, please continue.
+If you want to know what is under development, help contributing to the dev build, or just want a peek on what's going on, please continue.
 
 ### Build develop branch from Source
 

@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate{
         NSLog("App launched.")
         StatusBarController.setup()
         HotKeyManager.setupHotKey()
-        NotificationCenter.default.addObserver(forName: NotificationNames.prefsChanged, object: nil, queue: Global.mainQueue) {[] (notification) in
+        NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification, object: nil, queue: Global.mainQueue) {[] (notification) in
             StatusBarMonitor.getOffScreenItems()
             StatusBarMonitor.test()
         }
