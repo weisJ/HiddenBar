@@ -13,11 +13,8 @@ class AppDelegate: NSObject, NSApplicationDelegate{
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSLog("App launched.")
         StatusBarController.setup()
-        HotKeyManager.setupHotKey()
-        NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification, object: nil, queue: Global.mainQueue) {[] (notification) in
-            StatusBarMonitor.getOffScreenItems()
-            StatusBarMonitor.test()
-        }
+        HotKeyManager.setup()
+        StatusBarMonitor.setup()
     }
     
     func applicationWillTerminate(_ notification: Notification) {

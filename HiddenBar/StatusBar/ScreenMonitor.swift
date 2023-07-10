@@ -11,4 +11,11 @@ import AppKit
 
 class ScreenMonitor {
     // TODO: multiple screen support
+    private static let instance = ScreenMonitor()
+    private init() {
+    }
+    
+    public static func setup() {
+        // TODO
+    }
 }
