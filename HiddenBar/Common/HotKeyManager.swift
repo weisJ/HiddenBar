@@ -26,7 +26,7 @@ class HotKeyManager {
     }
     
     
-    static func setupHotKey() {
+    static func setup() {
         guard let globalKey = Preferences.globalKey else {return}
         hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: globalKey.keyCode, carbonModifiers: globalKey.carbonFlags))
     }

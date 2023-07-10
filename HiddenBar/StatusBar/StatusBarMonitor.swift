@@ -12,6 +12,18 @@ import CoreGraphics
 import ApplicationServices
 
 class StatusBarMonitor {
+    private static let instance = StatusBarMonitor()
+    private init() {
+    }
+    
+    public static func setup() {
+        NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification, object: nil, queue: Global.mainQueue) {[] (notification) in
+            StatusBarMonitor.test()
+        }
+        StatusBarMonitor.getOffScreenItems()
+        StatusBarMonitor.moveIcons()
+    }
+    
     public static func getOffScreenItems() {
         let windowInfosOnScreen = (CGWindowListCopyWindowInfo(CGWindowListOption.optionOnScreenOnly, kCGNullWindowID) as! Array<CFDictionary>).filter {
             guard let dict = $0 as? [CFString: AnyObject] else {return false}
@@ -32,7 +44,6 @@ class StatusBarMonitor {
                 let bounds = CGRect(dictionaryRepresentation: boundsDict)!
                 //NSLog("ITEM: \(applicationName), \(bounds), \(CGWindowID(windowNumber))")
                 //NSLog("ALL: \(dict)")
-                
             }
         }
         NSLog("SERVER:\(CGSessionCopyCurrentDictionary())")
@@ -50,7 +61,9 @@ class StatusBarMonitor {
                 let applicationName = dict[kCGWindowOwnerName as CFString] as! String
                 let bounds = CGRect(dictionaryRepresentation: boundsDict)!
                 NSLog("item: \(applicationName), \(dict), \(CGWindowID(windowNumber))")
-                if applicationName == "VMware Fusion Applications Menu" {
+                let desc = CGWindowListCreateDescriptionFromArray([CGWindowID(windowNumber)] as CFArray)!
+                NSLog("DESC:\(desc)")
+                if applicationName == "SystemUIServer" {
                     //CGCaptureAllDisplays()
                     let newBounds = NSScreen.main!.convertRectFromBacking(bounds)
                     let mainDisplay = CGMainDisplayID()
@@ -93,6 +106,7 @@ class StatusBarMonitor {
                 }
             }
         }
+        
         /*
          let windowList = CGWindowListCopyWindowInfo([.optionOnScreenOnly], kCGNullWindowID) as! [[String: Any]]
          
@@ -108,8 +122,75 @@ class StatusBarMonitor {
          */
     }
     
+    public static func moveIcons() {
+        let windowInfosAll = (CGWindowListCopyWindowInfo(CGWindowListOption.optionAll, kCGNullWindowID) as! Array<CFDictionary>).filter {
+            guard let dict = $0 as? [CFString: AnyObject] else {return false}
+            return dict[kCGWindowOwnerName] as! String != "SystemUIServer"
+        }
+        for item in windowInfosAll {
+            if let dict = item as? [CFString: AnyObject] {
+                let applicationName = dict[kCGWindowOwnerName as CFString] as! String
+                let boundsDict = dict[kCGWindowBounds as CFString] as! CFDictionary
+                let pid = dict[kCGWindowOwnerPID as CFString] as! pid_t
+                let bounds = CGRect(dictionaryRepresentation: boundsDict)!
+                if applicationName == "SystemUIServer" {
+                    let eventMask =
+                        (1 << CGEventType.keyDown.rawValue) |
+                        (1 << CGEventType.keyUp.rawValue) |
+                        (1 << CGEventType.leftMouseDown.rawValue) |
+                        (1 << CGEventType.leftMouseUp.rawValue)
+                    let machPort = CGEvent.tapCreateForPid(pid: pid, place: .headInsertEventTap, options: .defaultTap, eventsOfInterest: CGEventMask(eventMask), callback: (
+                        { [] (_,_,event,_)  in
+                            NSLog("TRIGGERED! \(event.location)");
+                            return Unmanaged.passUnretained(event)}
+                    ), userInfo: nil)
+                    let runLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, machPort, 0)
+                    CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, .commonModes)
+                    CGEvent.tapEnable(tap: machPort!, enable: true)
+                    CFRunLoopRun()
+                    NSLog("MOVE:\(machPort)")
+                }
+            }
+        }
+    }
+    
     public static func test() {
-        return;
+        let windowInfosAll = (CGWindowListCopyWindowInfo(CGWindowListOption.optionAll, kCGNullWindowID) as! Array<CFDictionary>).filter {
+            guard let dict = $0 as? [CFString: AnyObject] else {return false}
+            return dict[kCGWindowOwnerName] as! String != "SystemUIServer"
+        }
+        let windowInfosServer = (CGWindowListCopyWindowInfo(CGWindowListOption.optionAll, kCGNullWindowID) as! Array<CFDictionary>)
+        
+        var pid = 0 as pid_t
+        for item in windowInfosServer {
+            if let dict = item as? [CFString: AnyObject] {
+                let applicationName = dict[kCGWindowOwnerName as CFString] as! String
+                if applicationName == "Dock" {
+                    pid = dict[kCGWindowOwnerPID as CFString] as! pid_t
+                }
+            }
+        }
+        if pid == 0 {NSLog("OOPS");return}
+        for item in windowInfosAll {
+            if let dict = item as? [CFString: AnyObject] {
+                let applicationName = dict[kCGWindowOwnerName as CFString] as! String
+                let boundsDict = dict[kCGWindowBounds as CFString] as! CFDictionary
+                let bounds = CGRect(dictionaryRepresentation: boundsDict)!
+                if applicationName == "SystemUIServer" {
+                    let event = CGEvent(mouseEventSource: nil, mouseType: .leftMouseDown, mouseCursorPosition: CGPoint(x: bounds.minX + 1, y: bounds.minY + 1), mouseButton: .left)
+                    //event!.post(tap: .cghidEventTap)
+                    event!.postToPid(pid)
+                    //usleep(useconds_t(Int.random(in: 400_010..<600_200)))
+                    let event2 = CGEvent(mouseEventSource: nil, mouseType: .leftMouseUp, mouseCursorPosition: CGPoint(x: bounds.minX + 1, y: bounds.minY + 1), mouseButton: .left)
+                    //event2!.post(tap: .cghidEventTap)
+                    event2!.postToPid(pid)
+                    NSLog("POST")
+                }
+            }
+        }
+        return
+    }
+    public static func test2() {
         let windowInfosAll = (CGWindowListCopyWindowInfo(CGWindowListOption.optionAll, kCGNullWindowID) as! Array<CFDictionary>).filter {
             guard let dict = $0 as? [CFString: AnyObject] else {return false}
             return dict[kCGWindowLayer] as! Int == 25 && dict[kCGWindowOwnerName] as! String != "SystemUIServer"
@@ -129,7 +210,9 @@ class StatusBarMonitor {
             AXUIElementCopyActionNames(axElement, $0)
         }
         
-        NSLog("array: \(array as! CFArray), \(result).")
+        // result will be UNABLE_TO_COMPLETE when sandboxing is ON.
+        
+        NSLog("array: \(array!), \(result).")
         
     }
 }
