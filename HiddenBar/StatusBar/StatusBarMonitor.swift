@@ -210,7 +210,7 @@ class StatusBarMonitor {
             AXUIElementCopyActionNames(axElement, $0)
         }
         
-        // result will be UNABLE_TO_COMPLETE when sandboxing is ON.
+        // result will be UNABLE_TO_COMPLETE when sandboxing is ON. 
         
         NSLog("array: \(array!), \(result).")
         
