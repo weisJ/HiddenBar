@@ -1,27 +1,25 @@
-/* 
-  Localizable.strings
+/* (No Comment) */
+"Edit" = "Edit";
+
+/* (No Comment) */
+"Edit Mode" = "Edit Mode";
+
+/* (No Comment) */
+"Invalid" = "Invalid";
+
+/* Localizable.strings
   Hidden Bar
 
   Created by Licardo on 2020/3/9.
-  Copyright © 2020 Dwarves Foundation. All rights reserved.
-*/
-
+  Copyright © 2020 Dwarves Foundation. All rights reserved. */
 "Preferences..." = "Preferences...";
-"Edit Mode" = "Edit Mode";
-"Edit" = "Edit";
-"Invalid" = "Invalid";
-"Quit" = "Quit";
-"Set Shortcut" = "Set Shortcut";
-"Tutorial text" = "
-Usage:
-1. Click the Main Toggle (\"<\") to expand / collapse the status bar.
-2. Hold Option key (\"⌥\") while clicking the Main Toggle (\"<\") to reveal always hidden items.
-3. Right-click (Control-click) the Main Toggle (\"<\") to show Context Menu.
 
-Edit Mode:
-1. Check \"Edit Mode\" in Context Menu to enter edit mode.
-2. In edit mode, sperators between sections are shown.
-   Rearrange the status bar items into sections as needed.
-   (Hold Command key (\"⌘\") to drag icons.)
-3. Exit the edit mode by clicking the Main Toggle (\"<\") or unchecking \"Edit Mode\" in Context Menu.
-";
+/* (No Comment) */
+"Quit" = "Quit";
+
+/* (No Comment) */
+"Set Shortcut" = "Set Shortcut";
+
+/* Step by step tutorial */
+"Tutorial text" = "\nUsage:\n1. Click the Main Toggle (<) to expand / collapse the status bar.\n2. Hold Option key (⌥) while clicking the Main Toggle (<) to reveal always hidden items.\n3. Right-click (Control-click) the Main Toggle (<) to show Context Menu.\n\nEdit Mode:\n1. Check \"Edit Mode\" in Context Menu to enter edit mode.\n2. In edit mode, sperators between sections are shown.\n   Rearrange the status bar items into sections as needed.\n   (Hold Command key (⌘) to drag icons.)\n3. Exit the edit mode by clicking the Main Toggle (<) or unchecking \"Edit Mode\" in Context Menu.\n";
+
