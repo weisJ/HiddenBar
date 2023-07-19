@@ -80,7 +80,7 @@
 "Jjd-1G-63n.title" = "方框";
 
 /* Class = "NSTextFieldCell"; title = "In your Mac's menu bar, hold ⌘ and drag icons\nbetween sections to configure Hidden Bar."; ObjectID = "k7C-e5-6a0"; */
-"k7C-e5-6a0.title" = "按住 ⌘ 並在區段間拖曳Mac選單列的圖示，即可設定Hidden Bar。";
+"k7C-e5-6a0.title" = "按住Command鍵（⌘）並在區段間拖曳Mac選單列的圖示，即可設定Hidden Bar。";
 
 /* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
 "Kd2-mp-pUS.title" = "顯示全部";

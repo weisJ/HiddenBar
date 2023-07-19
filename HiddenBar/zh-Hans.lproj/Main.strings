@@ -405,7 +405,7 @@
 "jxT-CU-nIS.title" = "Format";
 
 /* Class = "NSTextFieldCell"; title = "In your Mac's menu bar, hold ⌘ and drag icons \nbetween sections to configure Hidden Bar."; ObjectID = "k7C-e5-6a0"; */
-"k7C-e5-6a0.title" = "在 Mac 的菜单栏中，按住 ⌘ 并拖动图标\n以自定义菜单栏";
+"k7C-e5-6a0.title" = "在 Mac 的菜单栏中，按住Command键（“⌘”）并拖动图标\n以自定义菜单栏";
 
 /* Class = "NSMenuItem"; title = "Show Sidebar"; ObjectID = "kIP-vf-haE"; */
 "kIP-vf-haE.title" = "Show Sidebar";
