@@ -38,6 +38,7 @@
 		FB6337332A1D5648007527EE /* HotKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6337322A1D5648007527EE /* HotKeyManager.swift */; };
 		FB71B0C72A153D6600D287CB /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB71B0C62A153D6600D287CB /* Notification.Name+Extension.swift */; };
 		FBE725F92A193D1000691AF3 /* ContextMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE725F82A193D1000691AF3 /* ContextMenuController.swift */; };
+		FF45A3ED2A4DF0A300E21BAD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF45A3EB2A4DF0A300E21BAD /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		FB6DDEC22A1D93010052B63C /* trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trash.swift; sourceTree = "<group>"; };
 		FB71B0C62A153D6600D287CB /* Notification.Name+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Extension.swift"; sourceTree = "<group>"; };
 		FBE725F82A193D1000691AF3 /* ContextMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuController.swift; sourceTree = "<group>"; };
+		FF45A3EC2A4DF0A300E21BAD /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		FF57A44B25E6C50200988FC2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		FF8A0FB5265E10DB00C76226 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -222,6 +224,7 @@
 				929113F821F9D04200173149 /* Assets.xcassets */,
 				929113FA21F9D04200173149 /* Main.storyboard */,
 				929113FD21F9D04200173149 /* Info.plist */,
+				FF45A3EB2A4DF0A300E21BAD /* InfoPlist.strings */,
 				967F4B2A24169CAF00F18D3C /* Localizable.strings */,
 			);
 			path = HiddenBar;
@@ -310,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				929113F921F9D04200173149 /* Assets.xcassets in Resources */,
+				FF45A3ED2A4DF0A300E21BAD /* InfoPlist.strings in Resources */,
 				967F4B2824169CAF00F18D3C /* Localizable.strings in Resources */,
 				929113FC21F9D04200173149 /* Main.storyboard in Resources */,
 			);
@@ -404,6 +408,14 @@
 				55188DF9279A737900A92772 /* hr */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		FF45A3EB2A4DF0A300E21BAD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF45A3EC2A4DF0A300E21BAD /* zh-Hant */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -553,6 +565,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = moe.ueharayou.MinimalBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -580,6 +593,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = moe.ueharayou.MinimalBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
