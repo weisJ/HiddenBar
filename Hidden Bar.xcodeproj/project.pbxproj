@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,6 +38,7 @@
 		FB6337332A1D5648007527EE /* HotKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6337322A1D5648007527EE /* HotKeyManager.swift */; };
 		FB71B0C72A153D6600D287CB /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB71B0C62A153D6600D287CB /* Notification.Name+Extension.swift */; };
 		FBE725F92A193D1000691AF3 /* ContextMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE725F82A193D1000691AF3 /* ContextMenuController.swift */; };
+		FBF0B9192A6CA22300D8AB0E /* MetaAssets in Resources */ = {isa = PBXBuildFile; fileRef = FBF0B9182A6CA22300D8AB0E /* MetaAssets */; };
 		FF45A3ED2A4DF0A300E21BAD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF45A3EB2A4DF0A300E21BAD /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +94,7 @@
 		FBAC6F332A684F2300185FF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FBAC6F342A68595F00185FF4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FBE725F82A193D1000691AF3 /* ContextMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuController.swift; sourceTree = "<group>"; };
+		FBF0B9182A6CA22300D8AB0E /* MetaAssets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MetaAssets; sourceTree = "<group>"; };
 		FF45A3EC2A4DF0A300E21BAD /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		FF57A44B25E6C50200988FC2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		FF8A0FB5265E10DB00C76226 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -113,41 +115,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0842CDF923A9FDB900D14BD4 /* Models */ = {
+		0842CDF923A9FDB900D14BD4 /* Adaptors */ = {
 			isa = PBXGroup;
 			children = (
 				0842CDFA23A9FDD000D14BD4 /* GlobalKeybindingPreferences.swift */,
 				08A5F85B23AA013100981CA5 /* SelectedSecond.swift */,
 			);
-			path = Models;
+			path = Adaptors;
 			sourceTree = "<group>";
 		};
-		0842CDFC23A9FF6D00D14BD4 /* Features */ = {
-			isa = PBXGroup;
-			children = (
-				0842CDFE23A9FF7C00D14BD4 /* Preferences */,
-				0842CDFD23A9FF7500D14BD4 /* StatusBar */,
-			);
-			path = Features;
-			sourceTree = "<group>";
-		};
-		0842CDFD23A9FF7500D14BD4 /* StatusBar */ = {
-			isa = PBXGroup;
-			children = (
-				92C97B9022018C1F0007559C /* StatusBarController.swift */,
-				FBE725F82A193D1000691AF3 /* ContextMenuController.swift */,
-			);
-			path = StatusBar;
-			sourceTree = "<group>";
-		};
-		0842CDFE23A9FF7C00D14BD4 /* Preferences */ = {
+		0842CDFC23A9FF6D00D14BD4 /* UserInterfaces */ = {
 			isa = PBXGroup;
 			children = (
 				08C20FE123AB452C0035D978 /* AboutViewController.swift */,
 				08A5F85923AA007A00981CA5 /* PreferencesViewController.swift */,
 				3CF14C81221FA49D0083D42B /* PreferencesWindowController.swift */,
 			);
-			path = Preferences;
+			path = UserInterfaces;
+			sourceTree = "<group>";
+		};
+		0842CDFD23A9FF7500D14BD4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				08A5F86323AA09F300981CA5 /* Preferences.swift */,
+				FB6337322A1D5648007527EE /* HotKeyManager.swift */,
+				92C97B9022018C1F0007559C /* StatusBarController.swift */,
+				FBE725F82A193D1000691AF3 /* ContextMenuController.swift */,
+				92C97B87220032ED0007559C /* Util.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		08A5F86223AA09D900981CA5 /* Extensions */ = {
@@ -159,6 +155,9 @@
 				967F4B2424169BC800F18D3C /* String+Extension.swift */,
 				55F3F1182608923B0054B881 /* Date+Extension.swift */,
 				55F3F11C2608925A0054B881 /* StackView+Extension.swift */,
+				92C97B8A220049D10007559C /* NSBarButtonItem+Extension.swift */,
+				92C97B8C220058740007559C /* NSView+Extension.swift */,
+				08C20FDD23AABDD10035D978 /* HyperlinkTextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -168,9 +167,6 @@
 			children = (
 				00117C4326600671005E517C /* Assets.swift */,
 				FB1660832A12E668008C6B3C /* ProductGlobal.swift */,
-				08A5F86323AA09F300981CA5 /* Preferences.swift */,
-				92C97B87220032ED0007559C /* Util.swift */,
-				FB6337322A1D5648007527EE /* HotKeyManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -202,26 +198,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		92C97B89220049B30007559C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				92C97B8A220049D10007559C /* NSBarButtonItem+Extension.swift */,
-				92C97B8C220058740007559C /* NSView+Extension.swift */,
-				08C20FDD23AABDD10035D978 /* HyperlinkTextField.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		FB6337302A1D5323007527EE /* HiddenBar */ = {
 			isa = PBXGroup;
 			children = (
+				FBF0B9182A6CA22300D8AB0E /* MetaAssets */,
 				FB1660802A12D3F4008C6B3C /* ProjectGlobal.swift */,
 				9220587D22127050008A8B03 /* Hidden.entitlements */,
 				08A5F86223AA09D900981CA5 /* Extensions */,
-				0842CDFC23A9FF6D00D14BD4 /* Features */,
-				0842CDF923A9FDB900D14BD4 /* Models */,
+				0842CDFC23A9FF6D00D14BD4 /* UserInterfaces */,
+				0842CDFD23A9FF7500D14BD4 /* Controllers */,
+				0842CDF923A9FDB900D14BD4 /* Adaptors */,
 				9267D3212201A49200EFFCE2 /* Common */,
-				92C97B89220049B30007559C /* Views */,
 				929113F421F9D04100173149 /* AppDelegate.swift */,
 				FB1660452A12CB2A008C6B3C /* Main.swift */,
 				929113F821F9D04200173149 /* Assets.xcassets */,
@@ -243,7 +230,7 @@
 				929113ED21F9D04100173149 /* Sources */,
 				929113EE21F9D04100173149 /* Frameworks */,
 				929113EF21F9D04100173149 /* Resources */,
-				FB63372F2A1D2A74007527EE /* ShellScript */,
+				FB5C5A602A68757300998E56 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -266,8 +253,8 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
-				ORGANIZATIONNAME = "Dwarves Foundation";
+				LastUpgradeCheck = 1500;
+				ORGANIZATIONNAME = UeharaYou;
 				TargetAttributes = {
 					929113F021F9D04100173149 = {
 						CreatedOnToolsVersion = 10.1;
@@ -281,7 +268,7 @@
 				};
 			};
 			buildConfigurationList = 929113EC21F9D04100173149 /* Build configuration list for PBXProject "Hidden Bar" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -318,6 +305,7 @@
 				929113F921F9D04200173149 /* Assets.xcassets in Resources */,
 				FF45A3ED2A4DF0A300E21BAD /* InfoPlist.strings in Resources */,
 				967F4B2824169CAF00F18D3C /* Localizable.strings in Resources */,
+				FBF0B9192A6CA22300D8AB0E /* MetaAssets in Resources */,
 				929113FC21F9D04200173149 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,7 +313,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		FB63372F2A1D2A74007527EE /* ShellScript */ = {
+		FB5C5A602A68757300998E56 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -334,6 +322,9 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh",
+				"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/LaunchAtLoginHelper.zip",
+				"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/LaunchAtLoginHelper-with-runtime.zip",
 			);
 			outputFileListPaths = (
 			);
@@ -341,7 +332,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# codesign --force --deep --sign=\"$EXPANDED_CODE_SIGN_IDENTITY_NAME\" \"{BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\ncat \"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -467,6 +458,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -531,6 +523,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -551,13 +544,13 @@
 		9291141821F9D04200173149 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconV2;
 				CODE_SIGN_ENTITLEMENTS = HiddenBar/Hidden.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 47HK3524RN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -567,7 +560,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 2.0.2;
+				MARKETING_VERSION = 2.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = moe.ueharayou.MinimalBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -579,13 +572,13 @@
 		9291141921F9D04200173149 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconV2;
 				CODE_SIGN_ENTITLEMENTS = HiddenBar/Hidden.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 47HK3524RN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -595,7 +588,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 2.0.2;
+				MARKETING_VERSION = 2.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = moe.ueharayou.MinimalBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

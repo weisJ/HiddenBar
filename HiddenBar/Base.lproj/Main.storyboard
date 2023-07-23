@@ -234,7 +234,6 @@
                                     <constraint firstAttribute="height" constant="278" id="cYp-S3-ecl"/>
                                 </constraints>
                                 <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                <font key="titleFont" metaFont="smallSystem"/>
                             </box>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="22" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ve9-SV-zSn">
                                 <rect key="frame" x="81" y="5" width="455" height="178"/>
@@ -702,7 +701,6 @@ between sections to configure Hidden Bar.</string>
                                     </constraints>
                                 </view>
                                 <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                <font key="titleFont" metaFont="smallSystem"/>
                             </box>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aZz-jM-wCs">
                                 <rect key="frame" x="18" y="117" width="91" height="26"/>
