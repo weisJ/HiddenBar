@@ -13,8 +13,8 @@ class AppDelegate: NSObject, NSApplicationDelegate{
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSLog("App launched.")
-        StatusBarController.setup()
-        HotKeyManager.setupHotKey()
+        StatusBarManager.setup()
+        HotKeyManager.setup()
     }
     
     func applicationWillTerminate(_ notification: Notification) {

@@ -1,5 +1,5 @@
 //
-//  UserDefault+Extension.swift
+//  PreferenceManager.swift
 //  Hidden Bar
 //
 //  Created by phucld on 12/18/19.
@@ -21,7 +21,7 @@ enum PreferenceKeys {
     static let statusBarPolicy = "statusBarPolicy"
 }
 
-enum Preferences {
+enum PreferenceManager {
     
     static func setDefault() -> Void {
         UserDefaults.standard.register(defaults: [
@@ -44,7 +44,7 @@ enum Preferences {
             guard let data = try? JSONEncoder().encode(newValue) else { return }
             UserDefaults.standard.set(data, forKey: PreferenceKeys.globalKey)
             
-            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: Preferences.globalKey))
+            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: PreferenceManager.globalKey))
         }
     }
     
@@ -55,7 +55,7 @@ enum Preferences {
         
         set {
             LaunchAtLogin.isEnabled = newValue
-            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: Preferences.isAutoStart))
+            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: PreferenceManager.isAutoStart))
         }
     }
     
@@ -81,7 +81,7 @@ enum Preferences {
         set {
             UserDefaults.standard.set(newValue, forKey: PreferenceKeys.numberOfSecondForAutoHide)
             
-            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: Preferences.numberOfSecondForAutoHide))
+            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: PreferenceManager.numberOfSecondForAutoHide))
         }
     }
     
@@ -93,7 +93,7 @@ enum Preferences {
         set {
             UserDefaults.standard.set(newValue, forKey: PreferenceKeys.isAutoHide)
             
-            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: Preferences.isAutoHide))
+            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: PreferenceManager.isAutoHide))
         }
     }
     
@@ -105,7 +105,7 @@ enum Preferences {
         set {
             UserDefaults.standard.set(newValue, forKey: PreferenceKeys.isShowPreference)
             
-            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: Preferences.isShowPreference))
+            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: PreferenceManager.isShowPreference))
         }
     }
     
@@ -138,7 +138,7 @@ enum Preferences {
             }
             UserDefaults.standard.set(num, forKey: PreferenceKeys.statusBarPolicy)
             
-            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: Preferences.statusBarPolicy))
+            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: PreferenceManager.statusBarPolicy))
         }
     }
     
@@ -150,7 +150,7 @@ enum Preferences {
         set {
             UserDefaults.standard.set(newValue, forKey: PreferenceKeys.isUsingFullStatusBar)
             
-            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: Preferences.isUsingFullStatusBar))
+            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: PreferenceManager.isUsingFullStatusBar))
         }
     }
     
@@ -162,7 +162,7 @@ enum Preferences {
         set {
             UserDefaults.standard.set(newValue, forKey: PreferenceKeys.isEditMode)
             
-            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: Preferences.isEditMode))
+            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: PreferenceManager.isEditMode))
         }
     }
     

@@ -15,19 +15,19 @@ class HotKeyManager {
             guard let hotKey = hotKey else { return }
             
             hotKey.keyDownHandler = { [] in
-                switch (Preferences.statusBarPolicy) {
+                switch (PreferenceManager.statusBarPolicy) {
                 case (.collapsed):
-                    Preferences.statusBarPolicy = .partialExpand
+                    PreferenceManager.statusBarPolicy = .partialExpand
                 default:
-                    Preferences.statusBarPolicy = .collapsed
+                    PreferenceManager.statusBarPolicy = .collapsed
                 }
             }
         }
     }
     
     
-    static func setupHotKey() {
-        guard let globalKey = Preferences.globalKey else {return}
+    static func setup() {
+        guard let globalKey = PreferenceManager.globalKey else {return}
         hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: globalKey.keyCode, carbonModifiers: globalKey.carbonFlags))
     }
 }

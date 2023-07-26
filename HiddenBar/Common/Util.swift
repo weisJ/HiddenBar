@@ -14,11 +14,6 @@ import Foundation
 
 class Util {
     
-    static func showPrefWindow() {
-        let prefWindow = PreferencesWindowController.shared.window
-        prefWindow?.bringToFront()
-    }
-    
     static func hasFullScreenWindow() -> Bool
     {
         // TODO: A better method detecting active full screen windows to prevent glitching

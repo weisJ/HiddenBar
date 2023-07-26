@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00117C4426600671005E517C /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00117C4326600671005E517C /* Assets.swift */; };
+		00117C4426600671005E517C /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00117C4326600671005E517C /* AssetManager.swift */; };
 		0842CDFB23A9FDD000D14BD4 /* GlobalKeybindingPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0842CDFA23A9FDD000D14BD4 /* GlobalKeybindingPreferences.swift */; };
 		08A5F85A23AA007A00981CA5 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5F85923AA007A00981CA5 /* PreferencesViewController.swift */; };
 		08A5F85C23AA013100981CA5 /* SelectedSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5F85B23AA013100981CA5 /* SelectedSecond.swift */; };
-		08A5F86423AA09F300981CA5 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5F86323AA09F300981CA5 /* Preferences.swift */; };
+		08A5F86423AA09F300981CA5 /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5F86323AA09F300981CA5 /* PreferenceManager.swift */; };
 		08B9F32C2411883300AA0551 /* NSWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B9F32B2411883300AA0551 /* NSWindow+Extension.swift */; };
 		08C20FDE23AABDD10035D978 /* HyperlinkTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C20FDD23AABDD10035D978 /* HyperlinkTextField.swift */; };
 		08C20FE023AB44E60035D978 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C20FDF23AB44E60035D978 /* Bundle+Extension.swift */; };
@@ -27,9 +27,10 @@
 		92C97B88220032ED0007559C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C97B87220032ED0007559C /* Util.swift */; };
 		92C97B8B220049D20007559C /* NSBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C97B8A220049D10007559C /* NSBarButtonItem+Extension.swift */; };
 		92C97B8D220058740007559C /* NSView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C97B8C220058740007559C /* NSView+Extension.swift */; };
-		92C97B9122018C1F0007559C /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C97B9022018C1F0007559C /* StatusBarController.swift */; };
+		92C97B9122018C1F0007559C /* StatusBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C97B9022018C1F0007559C /* StatusBarManager.swift */; };
 		967F4B2524169BC800F18D3C /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967F4B2424169BC800F18D3C /* String+Extension.swift */; };
 		967F4B2824169CAF00F18D3C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 967F4B2A24169CAF00F18D3C /* Localizable.strings */; };
+		FB09A4962A6CB8810013A8B5 /* NSImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09A4952A6CB8810013A8B5 /* NSImage+Extension.swift */; };
 		FB1660422A12A97E008C6B3C /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = FB1660412A12A97E008C6B3C /* HotKey */; };
 		FB1660462A12CB2A008C6B3C /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1660452A12CB2A008C6B3C /* Main.swift */; };
 		FB1660812A12D3F4008C6B3C /* ProjectGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1660802A12D3F4008C6B3C /* ProjectGlobal.swift */; };
@@ -37,17 +38,17 @@
 		FB63372E2A1D2961007527EE /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = FB63372D2A1D2961007527EE /* LaunchAtLogin */; };
 		FB6337332A1D5648007527EE /* HotKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6337322A1D5648007527EE /* HotKeyManager.swift */; };
 		FB71B0C72A153D6600D287CB /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB71B0C62A153D6600D287CB /* Notification.Name+Extension.swift */; };
-		FBE725F92A193D1000691AF3 /* ContextMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE725F82A193D1000691AF3 /* ContextMenuController.swift */; };
+		FBE725F92A193D1000691AF3 /* ContextMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE725F82A193D1000691AF3 /* ContextMenuManager.swift */; };
 		FBF0B9192A6CA22300D8AB0E /* MetaAssets in Resources */ = {isa = PBXBuildFile; fileRef = FBF0B9182A6CA22300D8AB0E /* MetaAssets */; };
 		FF45A3ED2A4DF0A300E21BAD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF45A3EB2A4DF0A300E21BAD /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		00117C4326600671005E517C /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		00117C4326600671005E517C /* AssetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
 		0842CDFA23A9FDD000D14BD4 /* GlobalKeybindingPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalKeybindingPreferences.swift; sourceTree = "<group>"; };
 		08A5F85923AA007A00981CA5 /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		08A5F85B23AA013100981CA5 /* SelectedSecond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedSecond.swift; sourceTree = "<group>"; };
-		08A5F86323AA09F300981CA5 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		08A5F86323AA09F300981CA5 /* PreferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
 		08B9F32B2411883300AA0551 /* NSWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindow+Extension.swift"; sourceTree = "<group>"; };
 		08C20FDD23AABDD10035D978 /* HyperlinkTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperlinkTextField.swift; sourceTree = "<group>"; };
 		08C20FDF23AB44E60035D978 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
@@ -74,7 +75,7 @@
 		92C97B87220032ED0007559C /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		92C97B8A220049D10007559C /* NSBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		92C97B8C220058740007559C /* NSView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Extension.swift"; sourceTree = "<group>"; };
-		92C97B9022018C1F0007559C /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
+		92C97B9022018C1F0007559C /* StatusBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarManager.swift; sourceTree = "<group>"; };
 		967F4B2424169BC800F18D3C /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		967F4B2924169CAF00F18D3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		967F4B2B24169CB200F18D3C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		B1326445261D7E0200319D35 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B350A2CC23AAFB47003A04AC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		B8404C9A24041A4300E6DBF8 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		FB09A4952A6CB8810013A8B5 /* NSImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Extension.swift"; sourceTree = "<group>"; };
 		FB1660452A12CB2A008C6B3C /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		FB1660802A12D3F4008C6B3C /* ProjectGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectGlobal.swift; sourceTree = "<group>"; };
 		FB1660832A12E668008C6B3C /* ProductGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGlobal.swift; sourceTree = "<group>"; };
@@ -93,7 +95,7 @@
 		FBAC6F322A684F0700185FF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		FBAC6F332A684F2300185FF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FBAC6F342A68595F00185FF4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FBE725F82A193D1000691AF3 /* ContextMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuController.swift; sourceTree = "<group>"; };
+		FBE725F82A193D1000691AF3 /* ContextMenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuManager.swift; sourceTree = "<group>"; };
 		FBF0B9182A6CA22300D8AB0E /* MetaAssets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MetaAssets; sourceTree = "<group>"; };
 		FF45A3EC2A4DF0A300E21BAD /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		FF57A44B25E6C50200988FC2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -137,11 +139,11 @@
 		0842CDFD23A9FF7500D14BD4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				08A5F86323AA09F300981CA5 /* Preferences.swift */,
+				08A5F86323AA09F300981CA5 /* PreferenceManager.swift */,
+				00117C4326600671005E517C /* AssetManager.swift */,
 				FB6337322A1D5648007527EE /* HotKeyManager.swift */,
-				92C97B9022018C1F0007559C /* StatusBarController.swift */,
-				FBE725F82A193D1000691AF3 /* ContextMenuController.swift */,
-				92C97B87220032ED0007559C /* Util.swift */,
+				92C97B9022018C1F0007559C /* StatusBarManager.swift */,
+				FBE725F82A193D1000691AF3 /* ContextMenuManager.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -158,6 +160,7 @@
 				92C97B8A220049D10007559C /* NSBarButtonItem+Extension.swift */,
 				92C97B8C220058740007559C /* NSView+Extension.swift */,
 				08C20FDD23AABDD10035D978 /* HyperlinkTextField.swift */,
+				FB09A4952A6CB8810013A8B5 /* NSImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -165,7 +168,7 @@
 		9267D3212201A49200EFFCE2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				00117C4326600671005E517C /* Assets.swift */,
+				92C97B87220032ED0007559C /* Util.swift */,
 				FB1660832A12E668008C6B3C /* ProductGlobal.swift */,
 			);
 			path = Common;
@@ -344,7 +347,7 @@
 				08C20FE023AB44E60035D978 /* Bundle+Extension.swift in Sources */,
 				08A5F85C23AA013100981CA5 /* SelectedSecond.swift in Sources */,
 				FB71B0C72A153D6600D287CB /* Notification.Name+Extension.swift in Sources */,
-				92C97B9122018C1F0007559C /* StatusBarController.swift in Sources */,
+				92C97B9122018C1F0007559C /* StatusBarManager.swift in Sources */,
 				55F3F1192608923B0054B881 /* Date+Extension.swift in Sources */,
 				FB6337332A1D5648007527EE /* HotKeyManager.swift in Sources */,
 				08B9F32C2411883300AA0551 /* NSWindow+Extension.swift in Sources */,
@@ -353,9 +356,10 @@
 				92C97B88220032ED0007559C /* Util.swift in Sources */,
 				967F4B2524169BC800F18D3C /* String+Extension.swift in Sources */,
 				FB1660812A12D3F4008C6B3C /* ProjectGlobal.swift in Sources */,
-				00117C4426600671005E517C /* Assets.swift in Sources */,
+				FB09A4962A6CB8810013A8B5 /* NSImage+Extension.swift in Sources */,
+				00117C4426600671005E517C /* AssetManager.swift in Sources */,
 				08A5F85A23AA007A00981CA5 /* PreferencesViewController.swift in Sources */,
-				FBE725F92A193D1000691AF3 /* ContextMenuController.swift in Sources */,
+				FBE725F92A193D1000691AF3 /* ContextMenuManager.swift in Sources */,
 				3CF14C82221FA49D0083D42B /* PreferencesWindowController.swift in Sources */,
 				92C97B8B220049D20007559C /* NSBarButtonItem+Extension.swift in Sources */,
 				92C97B8D220058740007559C /* NSView+Extension.swift in Sources */,
@@ -364,7 +368,7 @@
 				0842CDFB23A9FDD000D14BD4 /* GlobalKeybindingPreferences.swift in Sources */,
 				55F3F11D2608925A0054B881 /* StackView+Extension.swift in Sources */,
 				08C20FE223AB452C0035D978 /* AboutViewController.swift in Sources */,
-				08A5F86423AA09F300981CA5 /* Preferences.swift in Sources */,
+				08A5F86423AA09F300981CA5 /* PreferenceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

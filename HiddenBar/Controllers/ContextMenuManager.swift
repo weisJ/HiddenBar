@@ -1,5 +1,5 @@
 //
-//  ContextMenuController.swift
+//  ContextMenuManager.swift
 //  Hidden Bar
 //
 //  Created by 上原葉 on 5/21/23.
@@ -8,7 +8,7 @@
 
 import AppKit
 
-class ContextMenuController {
+class ContextMenuManager {
     class ContextMenuDelegate:NSObject, NSMenuDelegate {
         func confinementRect(for menu: NSMenu, on screen: NSScreen?) -> NSRect {
             guard let lscreen = screen else { return NSZeroRect }
@@ -16,7 +16,7 @@ class ContextMenuController {
         }
     }
     private static let delegate = ContextMenuDelegate()
-    private static let instance = ContextMenuController()
+    private static let instance = ContextMenuManager()
     private let contextMenu: NSMenu
     private let prefButton: NSMenuItem
     private let editToggle: NSMenuItem
@@ -43,7 +43,7 @@ class ContextMenuController {
     }
     
     private func updateMenu() {
-        editToggle.state = (Preferences.isEditMode) ? .on : .off
+        editToggle.state = (PreferenceManager.isEditMode) ? .on : .off
     }
     
     public static func setup() {
@@ -68,10 +68,10 @@ class ContextMenuController {
     }
     
     @objc func showPreference() {
-        Util.showPrefWindow()
+        PreferencesViewController.showPrefWindow()
     }
     @objc func toggleEdit() {
-        Preferences.isEditMode = !Preferences.isEditMode
+        PreferenceManager.isEditMode = !PreferenceManager.isEditMode
     }
 
     

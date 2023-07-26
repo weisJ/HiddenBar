@@ -1,5 +1,5 @@
 //
-//  StatusBarController.swift
+//  StatusBarManager.swift
 //  vanillaClone
 //
 //  Created by Thanh Nguyen on 1/30/19.
@@ -12,7 +12,7 @@ enum StatusBarPolicy:Int {
     case  collapsed = 0, fullExpand = 1, partialExpand = 2
 }
 
-class StatusBarController {
+class StatusBarManager {
 
     enum StatusBarValidity {
         case invalid; case onStartUp; case valid
@@ -53,35 +53,35 @@ class StatusBarController {
             
             switch (event.type, isOptionKeyPressed, isControlKeyPressed) {
             case (NSEvent.EventType.leftMouseUp, false, false):
-                if (Preferences.statusBarPolicy != .collapsed) {Preferences.statusBarPolicy  = .collapsed}
-                else {Preferences.statusBarPolicy = .partialExpand}
-                Preferences.isEditMode = false
+                if (PreferenceManager.statusBarPolicy != .collapsed) {PreferenceManager.statusBarPolicy  = .collapsed}
+                else {PreferenceManager.statusBarPolicy = .partialExpand}
+                PreferenceManager.isEditMode = false
             case (NSEvent.EventType.leftMouseUp, true, false):
-                if (Preferences.statusBarPolicy != .collapsed) {Preferences.statusBarPolicy  = .collapsed}
-                else {Preferences.statusBarPolicy = .fullExpand}
-                Preferences.isEditMode = false
+                if (PreferenceManager.statusBarPolicy != .collapsed) {PreferenceManager.statusBarPolicy  = .collapsed}
+                else {PreferenceManager.statusBarPolicy = .fullExpand}
+                PreferenceManager.isEditMode = false
             case (NSEvent.EventType.rightMouseUp, _, _):
                 fallthrough
             case (NSEvent.EventType.leftMouseUp, _, true):
-                ContextMenuController.showContextMenu(sender)
+                ContextMenuManager.showContextMenu(sender)
             default:
                 break
             }
         }
     }
     
-    private static let instance = StatusBarController()
+    private static let instance = StatusBarManager()
     private init() {
         if let button = masterToggle.button {
-            button.image = Assets.collapseImage
+            button.image = AssetManager.expandImage
         }
         
         if let button = primarySeprator.button {
-            button.image = Assets.seperatorImage
+            button.image = AssetManager.seperatorImage
         }
         
         if let button = secondarySeprator.button {
-            button.image = Assets.seperatorImage
+            button.image = AssetManager.seperatorImage
             button.appearsDisabled = true
         }
         masterToggle.autosaveName = "hiddenbar_masterToggle";
@@ -91,7 +91,7 @@ class StatusBarController {
     }
     
     public static func setup() {
-        ContextMenuController.setup()
+        ContextMenuManager.setup()
         
         let masterToggle = instance.masterToggle,
         primarySeprator = instance.primarySeprator,
@@ -123,7 +123,7 @@ class StatusBarController {
         case .onStartUp:
             Timer.scheduledTimer(withTimeInterval: TimeInterval(1), repeats: false) { _ in
                 // retry on more time after 1s
-                NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: Preferences.isAutoStart))
+                NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: PreferenceManager.isAutoStart))
             }
             fallthrough
         case .valid:
@@ -141,9 +141,9 @@ class StatusBarController {
             secondarySeprator = instance.secondarySeprator,
             lock = instance.updateLock
         lock.lock(before: Date(timeIntervalSinceNow: 1))
-        primarySeprator.length = StatusBarController.normalSepratorLength
-        secondarySeprator.length = StatusBarController.normalSepratorLength
-        masterToggle.button?.image = Assets.expandImage
+        primarySeprator.length = StatusBarManager.normalSepratorLength
+        secondarySeprator.length = StatusBarManager.normalSepratorLength
+        masterToggle.button?.image = AssetManager.collapseImage
         masterToggle.button?.title = "Invalid".localized
         lock.unlock()
     }
@@ -155,16 +155,16 @@ class StatusBarController {
             defer {lock.unlock()}
             //NSLog("Timer Cancelled:\(String(describing: instance.autoCollapseTimer)).")
             instance.autoCollapseTimer?.invalidate()
-            switch (Preferences.isAutoHide, Preferences.isEditMode, Preferences.statusBarPolicy) {
+            switch (PreferenceManager.isAutoHide, PreferenceManager.isEditMode, PreferenceManager.statusBarPolicy) {
             case (false, _, _), (_, true, _), (_, _, .collapsed):
                 return
             default:
                 break
             }
-            let timer = Timer(timeInterval: TimeInterval(Preferences.numberOfSecondForAutoHide), repeats: false) {
+            let timer = Timer(timeInterval: TimeInterval(PreferenceManager.numberOfSecondForAutoHide), repeats: false) {
                 [] (timer:Timer) in
                 //NSLog("Timer Triggered:\(timer).")
-                Preferences.statusBarPolicy = .collapsed
+                PreferenceManager.statusBarPolicy = .collapsed
                 return
             }
             //NSLog("Timer Dispatched:\(timer).")
@@ -180,39 +180,39 @@ class StatusBarController {
             lock = instance.updateLock
         
         lock.lock(before: Date(timeIntervalSinceNow: 1))
-        if Preferences.isEditMode {
-            primarySeprator.length = StatusBarController.normalSepratorLength
+        if PreferenceManager.isEditMode {
+            primarySeprator.length = StatusBarManager.normalSepratorLength
             //primarySeprator.isVisible = true
-            secondarySeprator.length = StatusBarController.normalSepratorLength
+            secondarySeprator.length = StatusBarManager.normalSepratorLength
             //secondarySeprator.isVisible = true
-            masterToggle.button?.image = Assets.expandImage
+            masterToggle.button?.image = AssetManager.collapseImage
             masterToggle.button?.title = "Edit".localized
             
         }
         else {
-            switch Preferences.statusBarPolicy {
+            switch PreferenceManager.statusBarPolicy {
             case .fullExpand:
-                primarySeprator.length = StatusBarController.hiddenSepratorLength
+                primarySeprator.length = StatusBarManager.hiddenSepratorLength
                 //primarySeprator.isVisible = false
-                secondarySeprator.length = StatusBarController.hiddenSepratorLength
+                secondarySeprator.length = StatusBarManager.hiddenSepratorLength
                 //secondarySeprator.isVisible = false
-                masterToggle.button?.image = Assets.expandImage
+                masterToggle.button?.image = AssetManager.collapseImage
                 masterToggle.button?.title = ""
                 
             case .partialExpand:
-                primarySeprator.length = StatusBarController.hiddenSepratorLength
+                primarySeprator.length = StatusBarManager.hiddenSepratorLength
                 //primarySeprator.isVisible = false
-                secondarySeprator.length = StatusBarController.expandedSeperatorLength
+                secondarySeprator.length = StatusBarManager.expandedSeperatorLength
                 //secondarySeprator.isVisible = true
-                masterToggle.button?.image = Assets.expandImage
+                masterToggle.button?.image = AssetManager.collapseImage
                 masterToggle.button?.title = ""
                 
             case .collapsed:
-                primarySeprator.length = StatusBarController.expandedSeperatorLength
+                primarySeprator.length = StatusBarManager.expandedSeperatorLength
                 //primarySeprator.isVisible = true
-                secondarySeprator.length = StatusBarController.expandedSeperatorLength
+                secondarySeprator.length = StatusBarManager.expandedSeperatorLength
                 //secondarySeprator.isVisible = true
-                masterToggle.button?.image = Assets.collapseImage
+                masterToggle.button?.image = AssetManager.expandImage
                 masterToggle.button?.title = ""
                 
             }
@@ -226,15 +226,15 @@ class StatusBarController {
         let lock = instance.updateLock
         
         lock.lock(before: Date(timeIntervalSinceNow: 1))
-        if !Preferences.isUsingFullStatusBar {
+        if !PreferenceManager.isUsingFullStatusBar {
             NSApp.setActivationPolicy(.accessory)
         }
         else {
             let shouldActiveIgnoringOtherApp = !Util.hasFullScreenWindow()
-            switch (Preferences.isEditMode, Preferences.statusBarPolicy) {
+            switch (PreferenceManager.isEditMode, PreferenceManager.statusBarPolicy) {
                 
             case (true, _), (_, .partialExpand), (_, .fullExpand):
-                if Preferences.isUsingFullStatusBar {
+                if PreferenceManager.isUsingFullStatusBar {
                     NSApp.setActivationPolicy(.regular)
                     NSApp.activate(ignoringOtherApps: shouldActiveIgnoringOtherApp)
                 }

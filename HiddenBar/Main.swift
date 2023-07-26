@@ -24,7 +24,7 @@ import AppKit
         }
         
         // Register user default
-        Preferences.setDefault()
+        PreferenceManager.setDefault()
         
         // Load GUI
         NSLog("GUI started.")

@@ -62,22 +62,22 @@ class PreferencesViewController: NSViewController {
     
     //MARK: - Actions
     @IBAction func loginCheckChanged(_ sender: NSButton) {
-        Preferences.isAutoStart = sender.state == .on
+        PreferenceManager.isAutoStart = sender.state == .on
     }
     
     @IBAction func autoHideCheckChanged(_ sender: NSButton) {
-        Preferences.isAutoHide = sender.state == .on
+        PreferenceManager.isAutoHide = sender.state == .on
     }
 
     @IBAction func useFullStatusBarOnExpandChanged(_ sender: NSButton) {
-        Preferences.isUsingFullStatusBar = sender.state == .on
+        PreferenceManager.isUsingFullStatusBar = sender.state == .on
     }
     
     
     @IBAction func timePopupDidSelected(_ sender: NSPopUpButton) {
         let selectedIndex = sender.indexOfSelectedItem
         if let selectedInSecond = SelectedSecond(rawValue: selectedIndex)?.toSeconds() {
-            Preferences.numberOfSecondForAutoHide = selectedInSecond
+            PreferenceManager.numberOfSecondForAutoHide = selectedInSecond
         }
     }
     
@@ -95,7 +95,7 @@ class PreferencesViewController: NSViewController {
         btnClear.isEnabled = false
         
         // Remove globalkey from userdefault
-        Preferences.globalKey = nil
+        PreferenceManager.globalKey = nil
     }
     
     public func updateGlobalShortcut(_ event: NSEvent) {
@@ -114,7 +114,7 @@ class PreferencesViewController: NSViewController {
             characters: characters,
             keyCode: uint32(event.keyCode))
         
-        Preferences.globalKey = newGlobalKeybind
+        PreferenceManager.globalKey = newGlobalKeybind
         
         updateKeybindButton(newGlobalKeybind)
         btnClear.isEnabled = true
@@ -138,16 +138,16 @@ class PreferencesViewController: NSViewController {
     }
     
     @objc private func updateData(){
-        checkBoxUseFullStatusbar.state = Preferences.isUsingFullStatusBar ? .on : .off
-        checkBoxLogin.state = Preferences.isAutoStart ? .on : .off
-        checkBoxAutoHide.state = Preferences.isAutoHide ? .on : .off
+        checkBoxUseFullStatusbar.state = PreferenceManager.isUsingFullStatusBar ? .on : .off
+        checkBoxLogin.state = PreferenceManager.isAutoStart ? .on : .off
+        checkBoxAutoHide.state = PreferenceManager.isAutoHide ? .on : .off
         //checkBoxShowPreferences.state = Preferences.isShowPreference ? .on : .off
         //checkBoxShowAlwaysHiddenSection.state = Preferences.statusBarPolicy == .fullExpand ? .on : .off
-        timePopup.selectItem(at: SelectedSecond.secondToPossition(seconds: Preferences.numberOfSecondForAutoHide))
+        timePopup.selectItem(at: SelectedSecond.secondToPossition(seconds: PreferenceManager.numberOfSecondForAutoHide))
     }
     
     private func loadHotkey() {
-        if let globalKey = Preferences.globalKey {
+        if let globalKey = PreferenceManager.globalKey {
             updateKeybindButton(globalKey)
             updateClearButton(globalKey)
         }
@@ -252,5 +252,10 @@ class PreferencesViewController: NSViewController {
         popover.animates = true
         
         popover.show(relativeTo: self.view.bounds, of: sender , preferredEdge: NSRectEdge.maxX)
+    }
+    
+    static public func showPrefWindow() {
+        let prefWindow = PreferencesWindowController.shared.window
+        prefWindow?.bringToFront()
     }
 }
