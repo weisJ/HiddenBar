@@ -17,8 +17,6 @@ class Util {
     static func hasFullScreenWindow() -> Bool
     {
         // TODO: A better method detecting active full screen windows to prevent glitching
-        let previousPolicy = NSApp.activationPolicy()
-        NSApp.setActivationPolicy(.accessory)
         guard let windows = CGWindowListCopyWindowInfo(CGWindowListOption(rawValue: CGWindowListOption.optionOnScreenOnly.rawValue | CGWindowListOption.excludeDesktopElements.rawValue), kCGNullWindowID) else {
             return false
         }
@@ -41,8 +39,9 @@ class Util {
                 return true
             }
         }
-        NSApp.setActivationPolicy(previousPolicy)
-        //NSLog("No full screen window found.")
+#if DEBUG
+                NSLog("No full screen window Found.")
+#endif
         return false
     }
 }

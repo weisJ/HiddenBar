@@ -15,10 +15,13 @@ class PreferencesWindowController: NSWindowController {
         case about
     }
     
-    static let shared: PreferencesWindowController = {
+    static private let instance: PreferencesWindowController = {
         let wc = NSStoryboard(name:"Main", bundle: nil).instantiateController(withIdentifier: "MainWindow") as! PreferencesWindowController
+        wc.window?.delegate = PreferencesWindowDelegate.shared
         return wc
     }()
+    
+    //private static var isWindowVisible = false
     
     private var menuSegment: MenuSegment = .general {
         didSet {
@@ -31,7 +34,12 @@ class PreferencesWindowController: NSWindowController {
     private let aboutVC = AboutViewController.initWithStoryboard()
     
     override func windowDidLoad() {
-        super.windowDidLoad()
+        super.windowDidLoad() // this is invoked when private instance is inited (not available until it returns)
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+            // retry on more time after 1s
+            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: PreferenceManager.isAutoStart))
+        }
+        //NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: nil)) // HERE! DEADLOCKED!!!!
         updateVC()
     }
     
@@ -63,4 +71,31 @@ class PreferencesWindowController: NSWindowController {
         }
     }
     
+    static func showPrefWindow() {
+        instance.window?.bringToFront()
+        NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: PreferenceManager.isAutoStart))
+    }
+    
+    static var isPrefWindowVisible: Bool {
+        let res = instance.window?.isVisible ?? false
+        return res
+        //return isWindowVisible
+    }
 }
+
+
+class PreferencesWindowDelegate: NSObject, NSWindowDelegate {
+    static let shared: PreferencesWindowDelegate = {
+        return PreferencesWindowDelegate()
+    }()
+    
+    
+    func windowWillClose(_ notification: Notification) {
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
+            // retry on more time after 0.1s
+            NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: PreferenceManager.isAutoStart))
+        }
+    }
+    
+}
+

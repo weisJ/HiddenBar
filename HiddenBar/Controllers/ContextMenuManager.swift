@@ -63,12 +63,15 @@ class ContextMenuManager {
         instance.updateMenu()
     }
     
+    public static func finishUp() {
+    }
+    
     public static func showContextMenu(_ sender: NSStatusBarButton) {
         instance.contextMenu.popUp(positioning: nil, at: .init(x: sender.bounds.minX, y: sender.bounds.minY), in: sender)
     }
     
     @objc func showPreference() {
-        PreferencesViewController.showPrefWindow()
+        PreferencesWindowController.showPrefWindow()
     }
     @objc func toggleEdit() {
         PreferenceManager.isEditMode = !PreferenceManager.isEditMode

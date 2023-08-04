@@ -24,10 +24,12 @@ class HotKeyManager {
             }
         }
     }
-    
-    
-    static func setup() {
+        
+    public static func setup() {
         guard let globalKey = PreferenceManager.globalKey else {return}
         hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: globalKey.keyCode, carbonModifiers: globalKey.carbonFlags))
+    }
+    
+    public static func finishUp() {
     }
 }

@@ -11,25 +11,24 @@ import AppKit
 @main struct MyApp {
     
     static func main () -> Void {
-        // Check for duplicated instances.
+        // Check for duplicated instances (in case of "open -n" command or other circumstances).
         let otherRunningInstances = NSWorkspace.shared.runningApplications.filter {
             $0.bundleIdentifier == Global.mainAppId && $0 != NSRunningApplication.current
         }
         let isAppAlreadyRunning = !otherRunningInstances.isEmpty
         
         if (isAppAlreadyRunning) {
-            
             NSLog("Program already running: \(otherRunningInstances.map{$0.processIdentifier}).")
-            return;
         }
-        
-        // Register user default
-        PreferenceManager.setDefault()
-        
-        // Load GUI
-        NSLog("GUI started.")
-        let ret_val = NSApplicationMain(CommandLine.argc, CommandLine.unsafeArgv)
-        NSLog("GUI exited with exit code: \(ret_val).")
+        else {
+            // Register user default
+            PreferenceManager.setDefault()
+            
+            // Load main entry for NSApp
+            NSLog("App started.")
+            let ret_val = NSApplicationMain(CommandLine.argc, CommandLine.unsafeArgv)
+            NSLog("App exited with exit code: \(ret_val).")
+        }
         return
     }
 }

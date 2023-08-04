@@ -253,9 +253,4 @@ class PreferencesViewController: NSViewController {
         
         popover.show(relativeTo: self.view.bounds, of: sender , preferredEdge: NSRectEdge.maxX)
     }
-    
-    static public func showPrefWindow() {
-        let prefWindow = PreferencesWindowController.shared.window
-        prefWindow?.bringToFront()
-    }
 }

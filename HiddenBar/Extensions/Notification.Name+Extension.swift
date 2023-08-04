@@ -11,5 +11,5 @@ import Cocoa
 class NotificationNames  {
     
     static let prefsChanged = Notification.Name("prefsChanged")
-    
+    static let anotherInstanceLaunched = Notification.Name("anotherInstanceLaunched")
 }

@@ -38,6 +38,7 @@
 		FB63372E2A1D2961007527EE /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = FB63372D2A1D2961007527EE /* LaunchAtLogin */; };
 		FB6337332A1D5648007527EE /* HotKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6337322A1D5648007527EE /* HotKeyManager.swift */; };
 		FB71B0C72A153D6600D287CB /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB71B0C62A153D6600D287CB /* Notification.Name+Extension.swift */; };
+		FBC82D8A2A7C42C30002575D /* AppActivationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC82D892A7C42C30002575D /* AppActivationManager.swift */; };
 		FBE725F92A193D1000691AF3 /* ContextMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE725F82A193D1000691AF3 /* ContextMenuManager.swift */; };
 		FBF0B9192A6CA22300D8AB0E /* MetaAssets in Resources */ = {isa = PBXBuildFile; fileRef = FBF0B9182A6CA22300D8AB0E /* MetaAssets */; };
 		FF45A3ED2A4DF0A300E21BAD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF45A3EB2A4DF0A300E21BAD /* InfoPlist.strings */; };
@@ -95,6 +96,7 @@
 		FBAC6F322A684F0700185FF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		FBAC6F332A684F2300185FF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FBAC6F342A68595F00185FF4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FBC82D892A7C42C30002575D /* AppActivationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppActivationManager.swift; sourceTree = "<group>"; };
 		FBE725F82A193D1000691AF3 /* ContextMenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuManager.swift; sourceTree = "<group>"; };
 		FBF0B9182A6CA22300D8AB0E /* MetaAssets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MetaAssets; sourceTree = "<group>"; };
 		FF45A3EC2A4DF0A300E21BAD /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		0842CDFD23A9FF7500D14BD4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FBC82D892A7C42C30002575D /* AppActivationManager.swift */,
 				08A5F86323AA09F300981CA5 /* PreferenceManager.swift */,
 				00117C4326600671005E517C /* AssetManager.swift */,
 				FB6337322A1D5648007527EE /* HotKeyManager.swift */,
@@ -361,6 +364,7 @@
 				08A5F85A23AA007A00981CA5 /* PreferencesViewController.swift in Sources */,
 				FBE725F92A193D1000691AF3 /* ContextMenuManager.swift in Sources */,
 				3CF14C82221FA49D0083D42B /* PreferencesWindowController.swift in Sources */,
+				FBC82D8A2A7C42C30002575D /* AppActivationManager.swift in Sources */,
 				92C97B8B220049D20007559C /* NSBarButtonItem+Extension.swift in Sources */,
 				92C97B8D220058740007559C /* NSView+Extension.swift in Sources */,
 				FB1660842A12E668008C6B3C /* ProductGlobal.swift in Sources */,
@@ -554,7 +558,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 47HK3524RN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -564,7 +568,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 2.0.3;
+				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = moe.ueharayou.MinimalBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -582,7 +586,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 47HK3524RN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -592,7 +596,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 2.0.3;
+				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = moe.ueharayou.MinimalBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

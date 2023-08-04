@@ -91,7 +91,6 @@ class StatusBarManager {
     }
     
     public static func setup() {
-        ContextMenuManager.setup()
         
         let masterToggle = instance.masterToggle,
         primarySeprator = instance.primarySeprator,
@@ -118,10 +117,13 @@ class StatusBarManager {
         triggerAdjustment()
     }
     
+    public static func finishUp() {
+    }
+    
     private static func triggerAdjustment() {
         switch areSeperatorPositionValid() {
         case .onStartUp:
-            Timer.scheduledTimer(withTimeInterval: TimeInterval(1), repeats: false) { _ in
+            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
                 // retry on more time after 1s
                 NotificationCenter.default.post(Notification(name: NotificationNames.prefsChanged, object: PreferenceManager.isAutoStart))
             }
@@ -129,7 +131,6 @@ class StatusBarManager {
         case .valid:
             resetAutoCollapseTimer()
             adjustStatusBar()
-            adjustMenuBar()
         case .invalid:
             resetSeperator()
         }
@@ -215,32 +216,6 @@ class StatusBarManager {
                 masterToggle.button?.image = AssetManager.expandImage
                 masterToggle.button?.title = ""
                 
-            }
-        }
-        lock.unlock()
-    }
-
-    private static func adjustMenuBar () {
-        
-        //TODO: do not deactivate if preference window is shown
-        let lock = instance.updateLock
-        
-        lock.lock(before: Date(timeIntervalSinceNow: 1))
-        if !PreferenceManager.isUsingFullStatusBar {
-            NSApp.setActivationPolicy(.accessory)
-        }
-        else {
-            let shouldActiveIgnoringOtherApp = !Util.hasFullScreenWindow()
-            switch (PreferenceManager.isEditMode, PreferenceManager.statusBarPolicy) {
-                
-            case (true, _), (_, .partialExpand), (_, .fullExpand):
-                if PreferenceManager.isUsingFullStatusBar {
-                    NSApp.setActivationPolicy(.regular)
-                    NSApp.activate(ignoringOtherApps: shouldActiveIgnoringOtherApp)
-                }
-            case (false, .collapsed):
-                NSApp.setActivationPolicy(.accessory)
-                NSApp.deactivate()
             }
         }
         lock.unlock()
