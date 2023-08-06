@@ -1,0 +1,62 @@
+name: Build and Release macOS App
+on:
+  workflow_dispatch:
+  
+#  push:
+#    tags:
+#      - '*'
+
+jobs:
+  build_and_release:
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest
+
+      - name: Build macOS App
+        run: |
+          xcodebuild \
+            -project "Hidden Bar.xcodeproj" \
+            -scheme "Hidden Bar" \
+            -configuration Release \
+            -archivePath "$HOME/build/Hidden Bar.xcarchive" \
+            clean archive \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_ENTITLEMENTS=""
+
+
+      - name: Package App
+        run: |
+          xcodebuild \
+            -exportArchive \
+            -archivePath "$HOME/build/Hidden Bar.xcarchive" \
+            -exportOptionsPlist exportOptions.plist \ # Replace with the path to your Export Options plist
+            -exportPath $HOME/build
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: "$HOME/build/Hidden Bar.app" # Replace with the path to your built app
+          asset_name: "Hidden Bar.app" # Replace with the desired name for the uploaded asset
+          asset_content_type: application/octet-stream
